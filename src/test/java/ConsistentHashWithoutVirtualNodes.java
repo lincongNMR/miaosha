@@ -51,6 +51,7 @@ public class ConsistentHashWithoutVirtualNodes
         hash ^= hash >> 7;
         hash += hash << 3;
         hash ^= hash >> 17;
+        System.out.println("str = [" + str + "]");
         hash += hash << 5;
 
         // 如果算出来的值为负数则取其绝对值

@@ -1,7 +1,6 @@
-import java.util.LinkedList;
-import java.util.List;
-import java.util.SortedMap;
-import java.util.TreeMap;
+import org.junit.Test;
+
+import java.util.*;
 
 /**
  * 带虚拟节点的一致性Hash算法
@@ -85,6 +84,7 @@ public class ConsistentHashingWithVirtualNode
         // 第一个Key就是顺时针过去离node最近的那个结点
         Integer i = subMap.firstKey();
         // 返回对应的虚拟节点名称，这里字符串稍微截取一下
+
         String virtualNode = subMap.get(i);
         return virtualNode.substring(0, virtualNode.indexOf("&&"));
     }
@@ -95,5 +95,20 @@ public class ConsistentHashingWithVirtualNode
         for (int i = 0; i < nodes.length; i++)
             System.out.println("[" + nodes[i] + "]的hash值为" +
                     getHash(nodes[i]) + ", 被路由到结点[" + getServer(nodes[i]) + "]");
+    }
+    @Test
+    public void test(){
+        int a = 16777619;
+        LinkedList<Integer> l = new LinkedList<Integer>();
+        while(a>=2){
+            int b = (int)a/2;
+            int c = a%2;
+            a = b;
+            l.add(c);
+        }
+        Collections.reverse(l);
+        for(Integer i : l){
+            System.out.print(i);
+        }
     }
 }
