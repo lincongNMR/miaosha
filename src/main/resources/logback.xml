@@ -1,18 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!--<!DOCTYPE configuration-->
-        <!--PUBLIC "-//mybatis.org//DTD Config 3.0//EN"-->
-        <!--"mybatis-3-config.dtd">-->
-<!--<!DOCTYPE mapper-->
-<!--PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"-->
-<!--"mybatis-3-mapper.dtd">-->
 
 <configuration debug="true">
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
-        <encoder>
-            <parttern>
-                %d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n
-            </parttern>
-        </encoder>
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <pattern>
+                %d{HH:mm:ss.SSS} [%thread] %-5level %logger{} - %msg%n
+            </pattern>
+        </layout>
     </appender>
     <root level="debug">
         <appender-ref ref="STDOUT"/>
