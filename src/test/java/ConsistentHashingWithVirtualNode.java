@@ -106,9 +106,19 @@ public class ConsistentHashingWithVirtualNode
             a = b;
             l.add(c);
         }
+        l.add(a);
         Collections.reverse(l);
         for(Integer i : l){
             System.out.print(i);
         }
+        System.out.println();
+        int size = l.size();
+        int decimal = 0;
+        int pivot = size-1;
+        for(Integer i : l){
+            decimal+=i*Math.pow(2,pivot);
+            pivot--;
+        }
+        System.out.println("original number is "+decimal);
     }
 }
