@@ -117,6 +117,7 @@ public class JSONUtil {
                 LOG.error(excp);
                 continue;
             }
+
             Class typeClass = gmethod.getReturnType();
 
             System.out.println(typeClass.getName());
