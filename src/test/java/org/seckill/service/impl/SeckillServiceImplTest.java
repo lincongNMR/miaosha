@@ -27,23 +27,24 @@ public class SeckillServiceImplTest extends TestCase {
     @Test
     public void testGetSeckillList() throws Exception {
         List<Seckill> list = this.seckillService.getSeckillList();
+
         logger.info("list={}",list);
     }
     @Test
     public void testGetById() throws Exception {
-        long id = 1000;
+        long id = 1;
         Seckill seckill = seckillService.getById(id);
         logger.info("seckill={}",seckill);
     }
     @Test
     public void testExportSeckillUrl() throws Exception {
-        long id = 1000;
+        long id = 1;
         Exposer exposer = this.seckillService.exportSeckillUrl(id);
         logger.info("exposer={}",exposer);
     }
     @Test
     public void testExecuteSeckill() throws Exception {
-        long id = 1000;
+        long id = 1;
         long phone = 18211099999L;
         String md5 = this.seckillService.getMD5(id);
 
