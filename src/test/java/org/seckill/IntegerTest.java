@@ -14,7 +14,7 @@ import java.util.List;
  */
 public class IntegerTest {
 
-    private static String startDate = "2016-09-23";
+    private static String startDate = "2016-02-29";
     private static String endDate = "2017-09-03";
     private static String payDayOfMonth = "31";
 
@@ -72,10 +72,10 @@ public class IntegerTest {
 
     public Calendar nextPayDate(Calendar curCal){
         Calendar clonedCurCal = (Calendar) curCal.clone();
-        Calendar nextPayCal = Calendar.getInstance();
+        Calendar nextPayCal;
         int maxDayOfMonth = maxDayOfMonth(clonedCurCal);
         //判断是否第一期（当且仅当当前日期为开始日期，并且付款日大于当前日期的day_of_month时，需要本月还款）
-        if(clonedCurCal.equals(startCal)&&clonedCurCal.get(Calendar.DAY_OF_MONTH)<payDayOfMonthInt){
+        if(clonedCurCal.equals(startCal)&&clonedCurCal.get(Calendar.DAY_OF_MONTH)<payDayOfMonthInt&&clonedCurCal.get(Calendar.DAY_OF_MONTH)<maxDayOfMonth){
             nextPayCal = getPayDateInCurMonth(clonedCurCal,maxDayOfMonth);
         }else{
             nextPayCal = nextMonth(clonedCurCal);

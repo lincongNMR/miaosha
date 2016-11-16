@@ -15,6 +15,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Isolation;
+import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.DigestUtils;
 
@@ -24,6 +26,7 @@ import java.util.List;
 /**
  * Created by linyitian on 2016/6/22.
  */
+@Transactional(propagation = Propagation.REQUIRED,rollbackFor = RuntimeException.class)
 @Service
 public class SeckillServiceImpl implements SeckillService {
 
@@ -64,6 +67,24 @@ public class SeckillServiceImpl implements SeckillService {
         String md5 = DigestUtils.md5DigestAsHex(base.getBytes());
         return md5;
     }
+
+
+//    @Transactional(rollbackFor = RuntimeException.class,isolation = Isolation.READ_UNCOMMITTED,propagation = Propagation.REQUIRED)
+    public void test1() throws Exception{
+        this.successKilledDao.updateTest();
+        int age = this.successKilledDao.queryAge(1);
+        logger.info("age ===="+ age);
+
+        throw new RuntimeException("rollBack?");
+
+    }
+
+    @Override
+    public void test() throws Exception{
+        test1();
+
+    }
+
     @Transactional
     public SeckillExecution executeSeckill(long seckillId, long userPhone, String md5) throws SeckillException, SeckillCloseException, RepeatKillException {
         if(md5==null || !md5.equals(getMD5(seckillId))){
