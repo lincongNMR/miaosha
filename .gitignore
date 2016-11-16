@@ -1,5 +1,4 @@
-*.iml
-.idea/
+
 
 
 *.class
@@ -65,3 +64,21 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+/.idea/
+target/classes/demo/
+target/classes/logback.xml
+target/classes/org/
+target/classes/spring/spring-service.xml
+target/classes/spring/spring-web.xml
+target/generated-sources/
+target/generated-test-sources/
+target/miaosha-1.0-SNAPSHOT/META-INF/
+target/miaosha-1.0-SNAPSHOT/WEB-INF/classes/logback.xml
+target/miaosha-1.0-SNAPSHOT/WEB-INF/classes/org/
+target/miaosha-1.0-SNAPSHOT/WEB-INF/classes/spring/spring-service.xml
+target/miaosha-1.0-SNAPSHOT/WEB-INF/classes/spring/spring-web.xml
+target/miaosha-1.0-SNAPSHOT/WEB-INF/jsp/
+target/miaosha-1.0-SNAPSHOT/WEB-INF/lib/
+target/test-classes/
+/target/
+/miaosha.iml
