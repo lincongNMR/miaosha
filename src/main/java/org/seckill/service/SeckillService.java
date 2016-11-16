@@ -32,4 +32,7 @@ public interface SeckillService {
             throws SeckillException,SeckillCloseException,RepeatKillException;
 
     String getMD5(long seckillId);
+
+    void test() throws Exception;
+
 }

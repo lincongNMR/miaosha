@@ -15,4 +15,7 @@ public interface SuccessKilledDao {
 
     SuccessKilled queryByIdWithSeckill(@Param("seckillId")long seckillId,@Param("userPhone")long userPhone);
 
+    void updateTest();
+
+    int queryAge(int id);
 }

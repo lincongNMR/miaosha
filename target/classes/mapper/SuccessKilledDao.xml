@@ -25,4 +25,12 @@
         where sk.seckill_id = #{seckillId} and user_phone=#{userPhone}
     </select>
 
+    <update id="updateTest">
+        update test set age = 11 where id = 1
+    </update>
+
+    <select id="queryAge" resultType="_int" parameterType="_int">
+        select age from test where id = #{id}
+    </select>
+
 </mapper>

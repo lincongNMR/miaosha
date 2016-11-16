@@ -96,4 +96,16 @@ public class SeckillController {
         Date now = new Date();
         return new SeckillResult<Long>(now.getTime(),true);
     }
+
+    @ResponseBody
+    @RequestMapping("test")
+    public void test(){
+        try {
+            this.seckillService.test();
+        } catch (Exception e) {
+            logger.error(e.getMessage());
+        }
+    }
+
+
 }
